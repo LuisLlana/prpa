@@ -1,0 +1,33 @@
+¿Que muestra por pantalla la llamada func1(3)?
+
+
+
+def func1(x):
+    a = func2(x//2)
+    b = func3(x+1)
+    print(a + b)
+
+def func2(x):
+    return x**2
+    print(x**2)
+
+def func3(y):
+    if y < 4:
+       print(y**2)
+    else:
+       print(y*2)
+    return 2*y
+
+
+a) nada, el programa tiene errores de sintaxis
+
+b) 
+8
+9
+
+c)
+1
+8
+9
+
+

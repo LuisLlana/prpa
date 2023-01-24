@@ -1,0 +1,9 @@
+Rellenar los huecos para que la siguiente funcion devuelva la subcadena de word que va de sde la posición ini y tiene num caracteres.
+
+def substr(word, ini, num):
+    i = 0
+    sub = ""
+    while _______________________:
+        _______________
+        i += 1
+    return sub

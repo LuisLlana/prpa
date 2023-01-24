@@ -1,0 +1,9 @@
+Rellena los hueco para que la siguiente función calculo el mayor n
+tal que existe un c tal que num = base^n * c
+
+def exp_of(base, num):
+    exp = 0
+    while _____:
+        num = _______
+        exp = _______
+    return exp

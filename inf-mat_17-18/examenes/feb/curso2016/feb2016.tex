@@ -1,0 +1,375 @@
+\documentclass[10pt]{examdesign}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage{listings}
+\usepackage[margin=1in]{geometry}
+
+
+\lstset{
+  language=Python,
+  frame=single,
+  basicstyle=\sffamily,
+  showstringspaces=false
+  %basicstyle=\ttfamily,
+}
+
+\NumberOfVersions{2} %Poner a 2 en la versión final
+%\NoRearrange % Eliminar para generar el examen definitivo
+\ContinuousNumbering
+\IncludeFromFile{codigos.tex}
+
+\newcommand{\tab}{\hspace*{2em}}
+
+\begin{document}
+
+\begin{examtop}
+%  \noindent Nombre:\rule{4in}{.4pt}\\
+%  \noindent Apellidos:\rule{4in}{.4pt}\\
+%  \noindent Grupo:    \rule{4in}{.4pt}\\
+%  \noindent DNI:      \rule{4in}{.4pt}\\
+    \noindent Apellidos y Nombre:\dotfill \\
+    \noindent DNI: \dotfill Grupo: \dotfill \\
+  \begin{center}
+    \textbf{Informática --- Examen parcial de febrero 2017} \\
+    \textbf{Grados en Matemáticas. Grupos A, B, C, D y E} \\
+    \textbf{Facultad de Ciencias Matemáticas, UCM} \\
+    Tipo \Alph{version}\\
+  \end{center}
+\end{examtop}
+
+\begin{exampreface}
+\textbf{Instrucciones}:~\\
+\begin{itemize}
+\item El examen durará \textbf{3 horas}. 
+\item Elegir una respuesta incorrecta en una pregunta de opción múltiple (preguntas 1--10) penalizará la nota en 0.3 puntos. Las respuestas no contestadas no penalizarán la nota. En todo caso, la puntuación mínima de la parte tipo \textit{test} será 0. 
+\item No se permite la utilización de apuntes, libros o cualquier otro tipo de material en el examen. 
+
+%Elegir una respuesta incorrecta en una pregunta de opción múltiple (preguntas 1--10) no penalizará la nota.
+\end{itemize}
+
+
+
+% Habrá XXX preguntas de respuesta múltiple, cada una de XXX puntos. Cada pregunta
+% tendrá 4 opciones, de las cuales solo una es correcta. Las respuestas incorrectas
+% no restan. También habrá preguntas de rellenar fragmentos de código.
+% %
+% Luego habrá un ejercicio de desarrollar sobre listas de 2,5 puntos.
+\end{exampreface}
+
+
+\begin{multiplechoice}[
+title={Preguntas de opción múltiple (5 puntos)}, 
+suppressprefix]
+    
+%   \begin{question}
+%   ¿Qué salida produciría por pantalla el siguiente código?
+%   \InsertChunk{basic1}  
+%   \choice[!]{\lstinline{2 4}}
+%   \choice{\lstinline{a b}}
+%   \choice{\lstinline{10 4}}
+%   \choice{\lstinline{2.5 4}}
+%   \end{question}
+
+
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{check("barco", 5, 'casa')}?
+  \InsertChunk{basic2}
+  % RAFA
+  % La respuesta correcta en todo caso es 1
+  % \choice{La invocación a la función es errónea y no devolvería ningún
+  %   valor.}
+  % \choice{Depende del valor de c}  % Propuesta para aniadir
+
+  \choice{Se produce un error en tiempo de ejecución.}
+  \choice{\lstinline{True}}
+  \choice[!]{\lstinline{False}}
+  \choice{\lstinline{'False'}}
+  \end{question}
+  
+  
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{grade(2)}?
+  \InsertChunk{cond1}
+  \choice{\lstinline{'Suspenso'}}
+  \choice{\lstinline{'Aprobado'}}
+  \choice[!]{\lstinline{'Notable'}}
+  \choice{\lstinline{'Sobresaliente'}}
+  \end{question}
+  
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{range(7, 5, -1)}?
+  \choice{\lstinline{[7, 6, 5]}}
+  \choice[!]{\lstinline{[7, 6]}}
+  \choice{\lstinline{[7, 5]}}
+  \choice{\lstinline{[ ]}}
+  \end{question}
+  
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{divisors(6)}?
+  \InsertChunk{loop1}
+  \choice{\lstinline{4}}
+  \choice{\lstinline{2}}
+  \choice{\lstinline{[6, 3, 2, 1]}}
+  \choice[!]{Nada, el bucle no termina.}
+  \end{question}
+  
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{create_image()}?
+% RAFA. Recordar que 255 es blanco y 0 negro?
+  \InsertChunk{loop2}
+  \choice{Una imagen de $50$ píxeles de ancho y $100$ de alto con fondo gris y una circunferencia blanca en el centro de la imagen.}
+  \choice[!]{Nada. Se produce un error del tipo {\it image index out of range.}}
+  \choice{Una imagen de $100$ píxeles de ancho y $50$ de alto con fondo negro y una línea blanca vertical.}
+  \choice{Nada, el bucle no termina.}
+  \end{question}
+  
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{first_later([1,3,5,7], [2,4,4,7,8])}?
+
+  \InsertChunk{cond22}
+  \choice{\lstinline{None}}
+  \choice{\lstinline{4}}
+  \choice[!]{\lstinline{5}}
+  \choice{\lstinline{Error}}
+
+  \end{question}
+
+
+
+
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{stellar_evolution(15.6)}?
+  \InsertChunk{cond3}
+  \choice{\lstinline{'supernova - neutron star / black hole'}}
+  \choice{\lstinline{'none'}}
+  \choice[!]{\lstinline{'blue dwarf - white dwarf - black dwarf'}}
+  \choice{Fallaría al comparar números enteros y flotantes.}
+  \end{question}
+
+
+   \begin{question}[0.5 pt]
+   ¿Qué valor devolvería la llamada \lstinline{old_car('day', 'empty', 'es')}?
+   \InsertChunk{cond4}
+   \choice{\lstinline{'no headlights'}}
+   \choice[!]{\lstinline{'dipped headlights'}}
+   \choice{\lstinline{'full beam headlights'}}
+   \choice{\lstinline{None}}
+   \end{question}
+
+   
+   \begin{question}[0.5 pt]
+   ¿Qué devolvería la invocación a la función \lstinline{find_multiples(3,11)}?
+   \InsertChunk{loop3}
+   \choice{\lstinline{[3,6,9]}}
+   \choice{\lstinline{[0,3,6,9]}}
+   \choice[!]{Nada, el bucle no terminaría.}
+   \choice{Nada, el programa tiene errores de sintaxis.}
+   \end{question}
+
+   
+   \begin{question}[0.5 pt]
+    Considerando el siguiente código, ¿qué mostraría por pantalla la invocación a la función \lstinline{do1(7)}?
+    \InsertChunk{basic4}
+    \choice{\lstinline{4.0}\\\lstinline{-4}}
+    \choice[!]{\lstinline{4.0}\\\lstinline{3}}
+    \choice{\lstinline{4}\\\lstinline{-4}}
+    \choice{\lstinline{3}\\\lstinline{4.0}}
+   \end{question}
+	
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RELLENAR CÓDIGO
+
+
+\end{multiplechoice}
+
+
+\pagebreak
+
+
+
+
+\begin{fillin}
+[title={Rellena el código que falta (1 punto)}, 
+suppressprefix]
+
+\begin{question}[0.5 pt]
+  Completa el código que falta en la función 
+  \lstinline{mcd} para que calcule el máximo común divisor de 
+  los números $a$ y $b$ (que supondremos $\geq 0$).
+  El algoritmo se basa en las siguientes premisas: \lstinline{mcd(a, b) = mcd(b, a)};
+  si \lstinline{a >= b}, \lstinline{mcd(a, b) = mcd(a-b, b)}; 
+  \lstinline{mcd(a, 0) = a} \\~\\
+%  {\sffamily
+%    def len\_base10(n):\\
+%    \tab n = abs(n)\\
+%    \tab c = 0\\
+%    \tab while \blank{n $>$
+%      0\phantom{mmmmmmmmmmmmmm}}:\\ %Para dejar más hueco
+%    \tab\tab n = \blank{n // 10\phantom{mmmmmmmmmmmmmm}}\\
+%    \tab\tab c = c + 1\\
+%    \tab return c\\
+%  }
+  
+    {\sffamily
+    def mcd(a, b):\\
+    \tab while b != 0:\\
+        \tab\tab \blank{if a $<$ b\phantom{mmmmmmmmmmmm}}:\\
+            \tab\tab\tab  \blank{a, b = b , a \phantom{mmmmmmmmm}}\\
+        \tab\tab \blank{a = a - b\phantom{mmmmmm}}\\
+    \tab return a 
+            
+  }
+\end{question}
+
+% \begin{question}[0.5 pt]
+%   Completa la función \lstinline{quadratic} para calcular las dos
+%   soluciones a para
+%   la ecuación $ax^2 + bx + c = 0$, considerando que $a > 0$ y $b^2 -4ac> 0 $.\\~\\
+%   {\sffamily
+%     import math\\
+%     ~\\
+%     def quadratic(a, b, c):\\
+%     \tab disc = b*b - 4*a*c\\
+%     \tab sol1 = \blank{(-b + math.sqrt(disc)) / (2*a)\phantom{mmmmmmmmmmmmmm}}\\
+%     \tab sol2 = \blank{(-b - math.sqrt(disc)) / (2*a)\phantom{mmmmmmmmmmmmmm}}\\
+%     \tab return \blank{sol1, sol2\phantom{mmmmmmmmmmmmmm}}\\
+%   }
+% \end{question}
+
+\begin{question}[0.5 pt]
+Completa la función \lstinline{reverse\_num} que calcula el \emph{reverso}
+de un número entero. El resultado es otro número entero. Por ejemplo, el reverso de 1234
+es 4321 y el reverso de 12000 es 21. \\
+~\\
+{\sffamily
+def reverse\_num(number): \\
+   \tab  reverse = 0\\
+   \tab while number != 0:\\
+   \tab\tab     reverse = \blank{10* reverse + (number \% 10)\phantom{mmmmmmmm}}\\
+   \tab\tab     number = \blank{number / 10\phantom{mmmmmmmm}}\\
+   \tab  return reverse \\
+}
+
+
+%{\sffamily
+%def binary\_search(e, l):\\
+%\tab i = 0\\
+%\tab j = len(l) - 1\\
+%\tab result = False\\
+%~\\ 
+%\tab while \blank{(i $<=$ j) and (not result)\phantom{mmmmmmmmmmmmmm}}:\\
+%\tab \tab med = \blank{(i + j) // 2\phantom{mmmmmmmmmmmmmm}}\\
+%\tab \tab if l[med] == e:\\
+%\tab \tab \tab result = True\\
+%\tab \tab elif l[med] $<$ e:\\
+%\tab \tab \tab \blank{i = med + 1\phantom{mmmmmmmmmmmmmm}}\\
+%\tab \tab elif l[med] $>$ e:\\
+%\tab \tab \tab \blank{j = med - 1\phantom{mmmmmmmmmmmmmm}}\\
+%~\\            
+%\tab return result\\
+%}
+\end{question}
+
+
+\end{fillin}
+
+\begin{shortanswer}
+[title={Preguntas para desarrollar (4 puntos)},  suppressprefix]
+
+%   \begin{question}
+%     \begin{itemize}
+%     \item Dado un espacio vectorial $\mathbf{E}$ sobre un cuerpo $K$ y
+%       definido el producto escalar para cada uno de sus vectores como
+%       \begin{displaymath}
+%         \mathbf{v \cdot w}=v_{1}\cdot w_{1}+ \dots + v_{n}w_{n}
+%       \end{displaymath}
+%       normalizar un vector consiste en dividirlo por su norma, siendo
+%       esta
+%       \begin{displaymath}
+%         |\mathbf{v}| = \sqrt{v_{1}\cdot v_{1}+ \dots + v_{n}v_{n}}
+%       \end{displaymath}
+% 
+% 
+%       \emph{Representando} los vectores como listas de coordenadas respecto a
+%       una base, programar una función \lstinline{normalize(v)} al que
+%       pasado un vector \emph{no nulo} de dimensión \textbf{n},
+%       devuelva las coordenadas de su versión normalizada. (Se acepta
+%       que cambie el argumento)
+%       \item Responde razonadamente \textbf{Que consecuencias tiene que la representación de los
+%       reales no sea precisa? }
+%   \end{itemize}
+% 
+% \begin{answer}
+%   ~
+%   \InsertChunk{problem2}
+%   \end{answer}  
+% 
+%   \end{question}
+
+  
+
+\begin{question}[2 pt]
+  Una imagen es \emph{oscura} cuando una proporción significativa de sus
+  píxeles son oscuros. 
+  Si la imagen es en blanco y negro, el píxel es
+  \emph{oscuro} cuando tenga un valor cercano a 0. En este ejercicio se
+  pide hacer una función, que se llamará \lstinline{is_dark} 
+  que indique si una imagen es oscura o no.
+  La función tendrá un primer parámetro \lstinline{image} que hará
+  referencia a un objeto imagen. Como ``ser cercano a cero''
+  puede ser algo subjetivo, la función tendrá un segundo parámeto
+  \lstinline{level} que indicará valor de forma que todos los
+  inferiores a él se considerarán oscuros. Por último debemos indicar
+  cual es la proporción de valores oscuros, para ello la función tendrá
+  un tercer parámetro \lstinline{ratio} que indicará que proporción de
+  valores oscuros debe tener la imagen para considerarla oscura. El
+  parámetro \lstinline{ratio} es un valor en el intervalo $(0,1)$. Por
+  ejemplo, si consideramos la imagen \lstinline{img} con los siguientes valores:
+  \begin{center}
+    \begin{tabular}{*{6}{r}}
+      0 &   1 &   2 &   3 &   4 &   5 \\
+      6 &   7 &   8 &   9 &  10 &  11 \\
+      12 &  13 &  14 &  15 &  16 &  17 \\
+      18 &  19 &  20 &  21 &  22 &  23 \\
+      24 &  25 &  26 &  27 &  28 &  29 \\
+      30 &  31 &  32 &  33 &  34 &  35 \\
+    \end{tabular}
+  \end{center}
+  Tendremos las siguientes respuestas:\\
+  \lstinline{is\_dark(img, 27, .5)} $\to$  \lstinline{True}\\
+  \lstinline{is\_dark(img, 10, .5)} $\to$ \lstinline{False} \\
+  \begin{answer}
+  ~
+  
+    \InsertChunk{isDark}
+  \end{answer}
+\end{question}
+  
+\begin{question}[2 pt]
+  Escribe una función \lstinline{communitary(lst)} para comprobar si una lista de 
+  números enteros es \emph{comunitaria}. Diremos que una lista es 
+  comunitaria si existe un divisor $d > 1$ común a todos
+  los enteros de la lista. Ejemplos:\\[-.2cm]
+   ~\\
+    \texttt{
+    communitary([2, 4, 6, 8]) $\to$ True \\
+    communitary([2, 4, 6, 8, 3]) $\to$ False
+    }
+
+
+  \begin{answer}
+  ~
+  \InsertChunk{communitary}
+  \end{answer}  
+  \end{question}  
+\end{shortanswer}
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

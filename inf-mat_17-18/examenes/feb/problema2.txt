@@ -1,0 +1,12 @@
+Dada una cadena de caracteres, queremos separar las palabras que las componen.
+Consideraremos como palabra una sucesión de letras entre caracteres que no sean letras, por ejemplo:
+las palabras de "En un lugar de la mancha, de cuyo nombre ........" son:"En","un","lugar", "de", "la","mancha","de","cuyo" y "nombre".
+Para distinguir si un carácter es una letra o un signo de puntuación o separador puedes suponer definida la siguiente función:
+
+import string
+
+def is_letter(c):
+    return c not in string.whitespace and c not in string.punctuation
+
+
+Escribe una función en Python que dada una cadena de caracteres devuelva la lista de las palabras que contiene. 

@@ -1,0 +1,24 @@
+def sum_par_impar(n):
+    pos_par = ______
+    pares = ____
+    impares = _____
+
+    while  n!=0:
+        digit = __________
+        if pos_par :
+            pares = pares + digit
+        else:
+            impares = impares + digit
+        n = ______
+        pos_par = __________
+    return (pares, impares)
+
+
+def divisible_11(n):
+    while ____:
+        pares, impares = sum_par_impar(n)
+        if ______:
+            n = pares - impares
+        else:
+            n = impares - pares
+    return n==0 or n==11

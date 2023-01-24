@@ -1,0 +1,275 @@
+\documentclass[10pt]{examdesign}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\selectlanguage{spanish}
+\usepackage{listings}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+
+\lstset{
+  language=Python,
+  frame=single,
+  basicstyle=\sffamily,
+  showstringspaces=false
+  %basicstyle=\ttfamily,
+}
+
+\NumberOfVersions{4} %Poner a 2 en la versión final
+\NoRearrange % Eliminar para generar el examen definitivo
+\ContinuousNumbering
+\IncludeFromFile{codigos_2018.tex}
+
+\newcommand{\tab}{\hspace*{2em}}
+
+\begin{document}
+
+\begin{examtop}
+%  \noindent Nombre:\rule{4in}{.4pt}\\
+%  \noindent Apellidos:\rule{4in}{.4pt}\\
+%  \noindent Grupo:    \rule{4in}{.4pt}\\
+%  \noindent DNI:      \rule{4in}{.4pt}\\
+    \noindent Apellidos y Nombre:\dotfill \\
+    \noindent DNI: \dotfill Grupo: \dotfill \\
+  \begin{center}
+    \textbf{Informática --- Examen parcial de enero 2018} \\
+    \textbf{Grados en Matemáticas. Grupos A, B, C, D y E} \\
+    \textbf{Facultad de Ciencias Matemáticas, UCM} \\
+    Tipo \Alph{version}\\
+  \end{center}
+\end{examtop}
+
+\begin{exampreface}
+\textbf{Instrucciones}:~\\
+\begin{itemize}
+\item El examen durará \textbf{3 horas}.
+\item Elegir una respuesta incorrecta en una pregunta de opción múltiple (preguntas 1--10) penalizará la nota en 0.15 puntos. Las respuestas no contestadas no penalizarán la nota. En todo caso, la puntuación mínima de la parte tipo \textit{test} será 0.
+\item No se permite la utilización de apuntes, libros o cualquier otro tipo de material en el examen.
+
+%Elegir una respuesta incorrecta en una pregunta de opción múltiple (preguntas 1--10) no penalizará la nota.
+\end{itemize}
+
+
+
+% Habrá XXX preguntas de respuesta múltiple, cada una de XXX puntos. Cada pregunta
+% tendrá 4 opciones, de las cuales solo una es correcta. Las respuestas incorrectas
+% no restan. También habrá preguntas de rellenar fragmentos de código.
+% %
+% Luego habrá un ejercicio de desarrollar sobre listas de 2,5 puntos.
+\end{exampreface}
+
+
+\begin{multiplechoice}[
+title={Preguntas de opción múltiple (5 puntos)},
+suppressprefix]
+
+  \begin{question}[0.5 pt]
+  Suponiendo la siguiente definición:
+  \small\InsertChunk{if-elif-else_execution_order}\normalsize
+  ¿Qué se imprime cuando se ejecuta la siguiente línea de código en el interprete de Python?\\
+  \lstinline{admit(17, "15", False, False), admit(32, "R18", True, False)}
+  % Simon:
+  % To work correctly, giving the answer (True, True),
+  % the first three clauses should be in the opposite order
+  \choice{\lstinline{(True, True)}}
+  \choice{\lstinline{(True, False)}}
+  \choice{\lstinline{(False, True)}}
+  \choice[!]{\lstinline{(False, False)}}
+  \end{question}
+
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{isPrime(51)}?
+  \small\InsertChunk{badly_placed_increment}\normalsize
+  % Simon:
+  % To work correctly, giving the answer True
+  % the indentation of the statement "i +=1" should be one level less
+  \choice{\lstinline{True}}
+  \choice{\lstinline{False}}
+  \choice{\lstinline{'not has_divisor'}}
+  \choice[!]{{Nada, el bucle no termina.}}
+  \end{question}
+
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{check("barco", 5, 'casa')}?
+  \InsertChunk{and-clause_execution_order}
+  % Simon:
+  % The clause order is inverted w.r.t. last year's question
+  % to check that the principle is understood.
+  \choice{\lstinline{True}}
+  \choice{\lstinline{False}}
+  \choice{\lstinline{'False'}}
+  \choice[!]{Se produce un error en tiempo de ejecución.}
+  \end{question}
+
+
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{number_list(3)}?
+  \InsertChunk{badly_used_inverse_range}
+  % Simon:
+  % To work correctly, giving the answer [3, 2, 1, 3, 2, 3],
+  % the first two arguments of the second range should be swapped
+  \choice[!]{\lstinline{[]}}
+  \choice{\lstinline{[3, 2, 1, 3, 2, 3]}}
+  \choice{\lstinline{[3, 3, 2, 3, 2, 1]}}
+  \choice{\lstinline{[3, 2, 1, 0, -1]}}
+  \end{question}
+
+  \begin{question}[0.5 pt]
+  ¿Qué valor devolvería la llamada \lstinline{highest_square(71)}?
+  \InsertChunk{badly_placed_return}
+  % Simon:
+  % To work correctly, giving the answer 64,
+  % the indentation of the return statement should be one level less
+  \choice[!]{\lstinline{1}}
+  \choice{\lstinline{64}}
+  \choice{\lstinline{81}}
+  \choice{Nada, el bucle no termina.}
+  \end{question}
+
+  \begin{question}[0.5 pt]
+  ¿Que muestra por pantalla la llamada \lstinline{func1(3)}?
+  \InsertChunk{function_calls}
+  \choice{\lstinline{1,8,9}}
+  \choice[!]{
+
+         \lstinline{8}
+
+         \lstinline{9}
+  }
+  \choice{
+
+         \lstinline{1}
+
+         \lstinline{8}
+
+         \lstinline{9}}
+  \choice{\lstinline{8,9}}
+  \end{question}
+
+
+  % \begin{question}[0.5 pt]
+  % ¿Qué devolvería la llamada a \lstinline{find_multiples(2, [2,3,4,6,8,9,11])}?
+  % \InsertChunk{bad_count_while}
+  % \choice{nada, el programa tiene errores de sintaxis}
+  % \choice{\lstinline{[2,4,6,8]}}
+  % \choice{\lstinline{[3,9,11]}}
+  % \choice[!]{Nada, el bucle no terminaría.}
+  % \end{question}
+
+  \begin{question}[0.5pt]
+    ¿Qué lista genera la llamada \lstinline{create_lst()}?
+    \InsertChunk{double_while}
+    \choice{[[0,2], [1,3], [2,4], [3,5], [4,6], [5,7], [6,8], [7,9]]}
+    \choice[!]{[[0,2], [1,3], [2,4], [3,5], [4,6], [5,7], [6,8], [7,9], [8,10]]}
+    \choice{[[0,2]]}
+    \choice{Ninguna de las opciones anteriores es valida}
+  \end{question}
+
+  \begin{question}
+    ¿Cuál es el valor de a tras la instrucción \lstinline{a = sum_lst([1,2,3,4,5])}?
+    \InsertChunk{bad_return}
+      \choice{15}
+      \choice{None}
+      \choice{Se produce un error en tiempo de ejecución.}
+      \choice{Nada, el bucle no termina.}
+  \end{question}
+
+  \begin{question}
+    Cual es la salida que produce el fragmento de codigo siguiente:
+    \InsertChunk{bad_print}
+    Dadas las siguientes afirmaciones, ¿cuáles son ciertas?
+
+    \begin{enumerate}[1]
+    \item El código imprime \\ 0 \\ 1 \\ 2 \\ 3 \\ 4
+    \item El código imprime \\ 1 \\ 2 \\ 3 \\ 4 \\ 5
+    \item Se produce un error en tiempo de ejecución.
+    \end{enumerate}
+    \choice{Sólo la 1}\choice{Sólo la 2}\choice{La 1 y la 3}\choice{La
+    2 y la 3}
+  \end{question}
+
+  \begin{question}
+    ¿Cuál es la salida que produce el fragmento de código siguiente
+    para la llamada \lstinline{test_if(0)}?
+    \InsertChunk{if_without_else}
+    \choice{Value less than or equal to zero}
+   \choice{Value greater than zero}
+    \choice{Value less than or equal to zero\\
+      Value greater than zero}
+    \choice{El código es incorrecto}
+  \end{question}
+
+
+\end{multiplechoice}
+
+
+
+\begin{fillin}
+[title={Rellena el código que falta (1 punto)},
+suppressprefix]
+
+
+  % \begin{question}[0.5 pt]
+  % Rellenar los huecos para que la siguiente funcion devuelva la subcadena de \lstinline{word} que va desde la posición \lstinline{ini} y tiene \lstinline{num} caracteres.
+  % \InsertChunk{fill_sub_str}
+  % \end{question}
+
+  \begin{question}[0.5 pt]
+  Rellena los huecos para que la siguiente función devuelva la posición de todas las apariciones de \lstinline{word} en
+\lstinline{text}. Para ello usa el método \lstinline{find} de las cadenas de caracteres:\lstinline{s.find(other, pos)} devuelve la primera aparición posterior o igual a \lstinline{pos} de \lstinline{other} en \lstinline{s}. Si \lstinline{other} no aparece devuelve -1.
+
+  \InsertChunk{fill_all_ocurences}
+  \end{question}
+
+  % \begin{question}[0.5 pt]
+  % Rellena los huecos para que la  función \lstinline{divisible_11} indique si un número es divisible por 11.
+
+  % \InsertChunk{fill_divisible_11}
+  % \end{question}
+
+  \begin{question}[0.5 pt]
+  Rellena los huecos para que la siguiente función \lstinline{exp_of} calcule el mayor \lstinline{n}
+tal que existe un \lstinline{c} tal que \lstinline{num = base^n * c}
+  \InsertChunk{fill_exp_of}
+  \end{question}
+
+
+\end{fillin}
+
+\begin{shortanswer}
+[title={Preguntas para desarrollar (4 puntos)},  suppressprefix]
+  \begin{question}[2 pt]
+  Como todos sabemos todo número natural $num$ mayor o igual que $1$ se puede
+expresar de la siguiente forma $num = 2^a\cdot 3^b\cdot c$, donde
+$a,b\geq 0$ y $c\geq 1$ no es divisible ni por $2$ ni por $3$.
+Un entero $num$ es piritiguai si $num\geq 1$ y en las condiciones $a\geq b$. Una lista
+de enteros será piritiguai si todos sus números son piritiguais.
+Haz un programa que indique si una lista es piritiguai.
+  \end{question}
+
+  \begin{question}[2 pt]
+  Dada una cadena de caracteres, queremos separar las palabras que las componen.
+Consideraremos como palabra una sucesión de letras entre caracteres que no sean letras. Por ejemplo,
+las palabras de \lstinline{\"En un lugar de la mancha, de cuyo nombre
+  ........\"}
+son: \lstinline{\"En\"}, \lstinline{\"un\"}, \lstinline{\"lugar\"},
+\lstinline{\"de\"},
+\lstinline{\"la\"}, \lstinline{\"mancha\"}, \lstinline{\"de\"}, \lstinline{\"cuyo\"} y \lstinline{\"nombre\"}.
+Para distinguir si un carácter es una letra o un signo de puntuación o separador puedes suponer definida la siguiente función:
+  \InsertChunk{def_is_letter}
+
+Escribe una función en Python que dada una cadena de caracteres devuelva la lista de las palabras que contiene.
+
+
+  \end{question}
+
+
+
+
+\end{shortanswer}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

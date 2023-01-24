@@ -1,0 +1,95 @@
+\documentclass[a4paper,11pt]{article}
+%\usepackage{ulem}
+\usepackage{amssymb,latexsym}
+\usepackage[dvips]{color}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{multirow}
+
+%\setlength{\textwidth}{16.4cm} \setlength{\textheight}{24.5cm}
+%\setlength{\topmargin}{-2cm} \setlength{\oddsidemargin}{-0.2cm}
+%\setlength{\evensidemargin}{-0.2cm} \pagestyle{empty}
+%
+\setlength{\textwidth}{17.5cm} \setlength{\textheight}{27cm}
+\setlength{\topmargin}{-2.5cm} \setlength{\oddsidemargin}{-0.4cm}
+\setlength{\evensidemargin}{-0.4cm} \pagestyle{empty}
+%
+\newtheorem{ej}{Ejercicio}
+\newenvironment{ejercicio}{\begin{ej}\begin{em}}{\end{em}\end{ej}}
+\newtheorem{definicion}{Definici\'on}[section]
+%
+\begin{document}
+\begin{center}
+{\huge \bf Inform\'atica. Pr\'actica 2}\\[0.5ex]
+{\Large Facultad de Matem\'aticas}\\
+{\Large Universidad Complutense de Madrid}\\
+{\large Curso 2017-2018}\\[2ex]
+\end{center}
+%
+{\Large\bf Sistemas de cifrado}\\
+Un sistema de cifrado es aquel sistema que permite que un emisor y un receptor intercambien informaci\'on confidencialmente. El emisor proporciona el mensaje original (o mensaje en claro) para que el algoritmo de cifrado lo transforme en un mensaje cifrado (o criptograma), mediante el uso de una clave. El criptograma se env\'ia a trav\'es de un canal p\'ublico y entonces el receptor, que conoce la clave, lo transforma en el mensaje original con la ayuda del algoritmo de descifrado.
+
+A continuaci\'on, se describen dos sistemas cl\'asicos de cifrado, cuyos algoritmos de cifrado y descifrado debes implementar en Python.\\[2ex]
+%
+{\large \bf Cifrado de Atbash}\\
+El cifrado de Atbash o encriptaci\'on hebrea fue un sistema utilizado por los hebreos del a\~no 600 a.C. y se us\'o en el Libro de Jerem\'ias\footnote{El Libro de Jerem\'ias es uno de los libros del Antiguo Testamento. Fue escrito por el Profeta Jerem\'ias entre los a\~nos 630 y 580 a.C. y registra las \'ultimas profec\'ias al pueblo de Jud\'a.} para ocultar la palabra \texttt{Babilonia}, cuyo criptograma era \texttt{Sesac}. Este es un cifrado por sustituci\'on monoalfab\'etica, es decir, cada car\'acter del mensaje original es sustituido por otro del mismo alfabeto. 
+
+El m\'etodo de cifrado consiste en sustituir la primera letra del alfabeto por la \'ultima, la segunda letra por la pen\'ultima, la tercera letra por la antepen\'ultima y as\'i sucesivamente con todo el alfabeto. El m\'etodo de descrifrado consiste en cifrar de nuevo el criptograma.\\
+\textbf{Ejemplo:}
+\texttt{
+\begin{center}   
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+A & B & C & D & E & F & G & H & I & J & K & L & M & N & O & P & Q & R & S & T & U & V & W & X & Y & Z \\
+\hline
+Z & Y & X & W & V & U & T & S & R & Q & P & O & N & M & L & K & J & I & H & G & F & E & D & C & B & A \\
+\hline
+\end{tabular}
+\end{center}
+}
+\noindent 
+\hspace*{3ex}Mensaje en claro: \texttt{LAS EDADES DEL HOMBRE.}\\
+\hspace*{3ex}Criptograma: \texttt{OZH VWZWVH WVO SLNYIV.}\\[2ex]
+%
+{\large \bf Cifrado por transposici\'on simple}\\
+La transposici\'on simple realiza un cifrado por transposici\'on, que modifica la posici\'on de los caracteres del mensaje original de forma que el criptograma contiene los mismos caracteres, pero resulta incomprensible a simple vista ya que estos est\'an desordenados.
+
+El m\'etodo de cifrado consiste en reescribir el mensaje original en dos l\'ineas, de forma que los caracteres impares aparecen en la primera l\'inea y los caracteres pares aparecen en la segunda l\'inea. El criptograma se obtiene concatenando ambas l\'ineas.
+
+El m\'etodo de descifrado consiste en dividir el criptograma en dos fragmentos de la misma longitud (si la longitud total del criptograma es impar, el primer fragmento tendr\'a un car\'acter m\'as que el segundo ). Cada fragmento se escribe en una l\'inea. El mensaje en claro se obtiene tomando los caracteres de ambas l\'ineas de manera alterna.\\ 
+\textbf{Ejemplo:}\\
+\hspace*{3ex}Mensaje en claro: \texttt{LAS EDADES DEL HOMBRE}\\
+\hspace*{3ex}L\'inea 1: 
+\texttt{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline\
+L & S & E & A & E & $\_$ & E & $\_$ & O & B & E \\
+\hline
+\end{tabular}\\
+}
+\hspace*{3ex}L\'inea 2:
+\texttt{
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline\
+A & $\_$ & D & D & S & D & L & H & M & R \\
+\hline
+\end{tabular}\\
+}
+\hspace*{3ex}Criptograma: \texttt{LSEAE E OBEA DDSDLHMR.}\\[2ex]
+%
+{\large \bf ?`Qu\'e debes hacer?}\\
+Debes dise\~nar y escribir en Python las cuatro funciones siguientes:
+\begin{enumerate}\setlength{\itemsep}{0ex plus0.2ex}\setlength{\parsep}{0.5ex plus0.2ex minus0.1ex}
+   \item \texttt{coder\_atbash(message):} El par\'ametro \texttt{message} es una cadena de caracteres que contiene un mensaje en claro. Devuelve otra cadena de caracteres que contiene el criptograma correspondiente obtenido mediante el cifrado de Atbash.
+   \item \texttt{decoder\_atbash(cryptogram):} El par\'ametro \texttt{cryptogram} es una cadena de caracteres que contiene un criptograma. Devuelve otra cadena de caracteres que contiene el mensaje original correspondiente obtenido mediante el descifrado de Atbash.
+   \item \texttt{coder\_transposition(message):} El par\'ametro \texttt{message} es una cadena de caracteres que contiene un mensaje en claro. Devuelve otra cadena de caracteres que contiene el criptograma correspondiente obtenido mediante el cifrado por transposici\'on simple.
+   \item \texttt{decoder\_transposition(cryptogram):} El par\'ametro \texttt{cryptogram} es una cadena de caracteres que contiene un criptograma. Devuelve otra cadena de caracteres que contiene el mensaje original correspondiente obtenido mediante el descifrado por transposici\'on simple.
+\end{enumerate}
+\textbf{Observaci\'on:} En el cifrado de Atbash, el alfabeto considerado es el compuesto por los caracteres \texttt{c} tales que
+ \texttt{(ord(`a')}$\leq$\texttt{ord(c)}$\leq$\texttt{ord(`z'))}$\:\lor\:$\texttt{(ord(`A')}$\leq$\texttt{ord(c)}$\leq$\texttt{ord(`Z'))}.
+%
+\end{document}

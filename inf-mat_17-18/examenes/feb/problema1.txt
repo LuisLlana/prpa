@@ -1,0 +1,6 @@
+Como todos sabemos todo número natural num mayor o igual que 1 se puede
+expresar de la siguiente forma num = 2^a\times 3^b\times c, donde
+a,b>=0 y c>=1 no es divisible ni por 2 ni por 3.
+Un entero num es piritiguiai si num>=1 y en las condiciones a>=b. Una lista
+de entereos será piritiguai si todos sus números son piritiguais.
+Haz un programa que indique si una lista es piritiguai.

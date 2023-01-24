@@ -1,0 +1,11 @@
+La siguiente funcón devuelve la posición de todas las apariciones de word en
+text. Para ello usa el método find de las cadenas de caracteres:
+- str.find(other, pos) devuelve la primera aparición posterior o igual apos de other en str. Si other no aparece devuelve -1.
+
+def all_occurrences(text, word):
+    result = []
+    last = __________
+    while last != -1:
+        result.append(last)
+        last = ____________
+    return result

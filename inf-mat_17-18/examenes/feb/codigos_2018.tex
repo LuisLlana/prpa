@@ -1,0 +1,234 @@
+\begin{chunk}{if-elif-else_execution_order}
+\begin{lstlisting}
+# UK film ratings are as follows: U, PG, 12A, 12, 15, 18, R18
+def admit(customer_age, film_rating, cinema_Xlicence, accompanied):
+    if customer_age >= 12:
+        admission = film_rating not in ["R18", "18", "15"]
+    elif customer_age >= 15:
+        admission = film_rating not in ["R18", "18"]
+    elif customer_age >= 18:
+        admission = True
+        if film_rating == "R18":
+            admission = cinema_Xlicence
+    else:
+        admission = (film_rating == "12A" and accompanied) \
+            or (film_rating in ["PG", "U"]
+    return admission
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{badly_placed_increment}
+\begin{lstlisting}
+def isPrime(number):
+    top = int(number**0.5)+1
+    i = 2
+    has_divisor = False
+    while i < top and not has_divisor:
+        if number%i == 0:
+            has_divisor = True
+            i += 1
+    return not has_divisor
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{and-clause_execution_order}
+\begin{lstlisting}
+def check (a, b, c) :
+    return ( a[5] > c[0] ) and ( b%3 < 2 )
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{badly_placed_return}
+\begin{lstlisting}
+def isPerfectSquare(number):
+    return (int(number**0.5))**2 == number
+
+def highest_square(top):
+    highest = current = 1
+    while current < top:
+        if isPerfectSquare(current):
+            highest = current
+        current += 1
+        return highest
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{badly_used_inverse_range}
+\begin{lstlisting}
+def number_list(top):
+    output = []
+    for i in range(top):
+        for j in range(i, top, -1):
+            output.append(j)
+    return output
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{function_calls}
+\begin{lstlisting}
+def func1(x):
+    a = func2(x//2)
+    b = func3(x+1)
+    print(a + b)
+
+def func2(x):
+    return x**2
+    print(x**2)
+
+def func3(y):
+    if y < 4:
+       print(y**2)
+    else:
+       print(y*2)
+    return 2*y
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{bad_count_while}
+\begin{lstlisting}
+def find_multiples(x, l):
+    i = 0
+    multiples = []
+    while i < len(l):
+        if l[i] % x == 0:
+            multiples.append(l[i])
+    return multiples
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{fill_sub_str}
+\begin{lstlisting}
+def substr(word, ini, num):
+    i = 0
+    sub = ""
+    while _______________________:
+        _______________
+        i += 1
+    return sub
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{fill_all_ocurences}
+\begin{lstlisting}
+def all_occurrences(text, word):
+    result = []
+    last = __________
+    while last != -1:
+        result.append(last)
+        last = ____________
+    return result
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{fill_divisible_11}
+\begin{lstlisting}
+def sum_par_impar(n):
+    pos_par = ______
+    pares = ____
+    impares = _____
+
+    while  n!=0:
+        digit = __________
+        if pos_par :
+            pares = pares + digit
+        else:
+            impares = impares + digit
+        n = ______
+        pos_par = __________
+    return (pares, impares)
+
+
+def divisible_11(n):
+    while ____:
+        pares, impares = sum_par_impar(n)
+        if ______:
+            n = pares - impares
+        else:
+            n = impares - pares
+    return n==0 or n==11
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{fill_exp_of}
+\begin{lstlisting}
+def exp_of(base, num):
+    exp = 0
+    while _____:
+        num = _______
+        exp = _______
+    return exp
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{def_is_letter}
+\begin{lstlisting}
+import string
+
+def is_letter(c):
+    return c not in string.whitespace and c not in string.punctuation
+
+\end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{if_without_else}
+  \begin{lstlisting}
+def test_if(x):
+  if x <= 0:
+     print("Value less than or equal to zero")
+     x += 1
+  if x >= 0:
+     print("Value greater than zero")
+  \end{lstlisting}
+\end{chunk}
+
+
+\begin{chunk}{sum_list}
+  \begin{lstlisting}
+list = [1,2,3,4,5]
+sum = 10
+while i < len(list):
+   sum += list[i]
+   i +=1
+  \end{lstlisting}
+\end{chunk}
+
+
+\begin{chunk}{bad_print}
+  \begin{lstlisting}
+list = [1,2,3,4,5]
+position = 0
+i = 0
+while i < len(list):
+   print(list[position])
+   position += 1
+  \end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{bad_return}
+  \begin{lstlisting}
+def sum_lst(lst):
+   sum = 0
+   while i < len(lst):
+      sum += lst[i]
+      i +=1
+   print(sum)
+
+a = sum_lst([1,2,3,4,5])
+  \end{lstlisting}
+\end{chunk}
+
+\begin{chunk}{double_while}
+   \begin{lstlisting}
+def create_lst():
+   i = 0
+   j = 0
+   lst = []
+   while (i <= 10):
+      while (j <= 10):
+         if (j == i+2):
+            lst.append([i,j])
+         j = j+1
+      i = i+1
+   return lst
+  \end{lstlisting}
+\end{chunk}

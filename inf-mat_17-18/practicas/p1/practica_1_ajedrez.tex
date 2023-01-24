@@ -1,0 +1,45 @@
+%\documentclass[11pt,heading,asymmetric,exercises]{uniexer}
+\documentclass[11pt,heading,asymmetric,practice,withsolutions]{uniexer}
+
+\usepackage{a4wide}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{marvosym}
+\usepackage[colorlinks]{hyperref}
+\usepackage{codex}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{chessboard}
+\selectlanguage{spanish}  
+
+\input{parcheSkak}
+
+\input{datosAsignatura}
+\exercita{defs}{doc-number={1},doc-titles?,dos-his?,
+  dos-h=auto,%bibliography?,
+  doc-title={Ajedrez},
+  funciones={si}}
+
+\setlength{\textheight}{24cm}
+\setlength{\headheight}{0em}
+
+\begin{document}
+
+
+\exercita{base}{programacion}
+
+\vspace*{1em}
+
+\exercita{load}{recreativos.ajedrez.piezas-ajedrez}[*]
+%\bibliographystyle{alpha}
+\end{document}
+ 
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

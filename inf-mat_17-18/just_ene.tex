@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage[latin9]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{indentfirst}
+\usepackage{eurosym}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\setlength{\hoffset}{0.5cm}
+\setlength{\voffset}{0.5cm}
+\setlength{\textwidth}{0cm}
+\setlength{\textheight}{0cm}
+\setlength{\topmargin}{-1in}
+\setlength{\oddsidemargin}{-1in}
+\setlength{\evensidemargin}{-1in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% \oddsidemargin=\evensidemargin
+%%% 2*\hoffset+2*\evensidemargin+\textwidth=21cm
+\addtolength{\textwidth}{17cm}
+\addtolength{\oddsidemargin}{1.5cm}\addtolength{\evensidemargin}{1.5cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% 2*\topmargin+2*\voffset+\textheight+\headheight = 29.7cm
+\setlength{\headwidth}{\textwidth}
+\setlength{\headheight}{6cm}
+\addtolength{\textheight}{21cm}
+\addtolength{\topmargin}{2cm}
+\def\baselinestretch{1.1}
+
+\pagestyle{fancy}
+\lhead{\logotipo}
+\chead{}
+\rhead{}
+\rfoot{\arabic{page}}
+\cfoot{}
+\lfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\def\logotipo{
+  \begin{tabular}{c|l}
+    \includegraphics[height=3cm]{escudo.png} &
+    \parbox[b]{0.8\hsize}{
+      \null\vskip0.5cm
+      \Large\textsc{\poner{centro}}\vskip1cm\null
+    }\\ \hline
+    &
+    \parbox[b]{0.8\hsize}{
+      \null\vskip0.5cm
+      \textbf{Departamento de Sistemas Informáticos y Computación}\\
+      \vskip 0.5cm\null
+    }
+  \end{tabular}
+}
+\def\poner#1{%
+  \expandafter\ifx\csname #1\endcsname\relax
+    \typeout{#1 No definido}
+    \textbf{\texttt --#1--}
+  \else
+    \csname #1\endcsname
+  \fi
+}
+
+
+\def\certificado{%
+  \poner{profesor}, profesor de la asignatura
+  \emph{\poner{asignatura}}, certifica que el alumno/a \textbf{\poner{alumno} (\poner{DNI})} ha asistido
+  al examen \poner{examen} de la asignatura mencionada celebrado el día \poner{fecha}.
+
+  \vskip 3cm
+  \hfill\parbox{7cm}{\poner{profesor}}\\\vskip2cm Madrid, \poner{fecha}}
+
+\begin{document}
+\def\profesor{Luis Fernando Llana Díaz}
+\def\centro{Facultad de Ciencias Matemácias}
+\def\asignatura{Informática}
+\def\examen{parcial}
+\def\fecha{15 de enero de 2018}
+
+
+
+\def\alumno{Nuria Vázquez Tomé}\def\DNI{53846704R}
+\certificado
+
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-master: t
+%%% End:
